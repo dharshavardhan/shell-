@@ -1,0 +1,41 @@
+#!bin/bash
+### create a empty directory
+mkdir new_dir
+mkdir harsha_dir
+
+### creating a python & shell empty files
+cd harsha_dir
+for i in {1..5}; do touch demo${i}.py; done
+for i in {1..5}; do touch demo${i}.sh; done
+ls
+
+cd ..
+cd new_dir
+
+### creating empty directories python & shell
+mkdir python_dir shell_dir
+
+
+### identify and place the files automatically to the sub folders
+cd ..
+cd harsha_dir
+find . -name "*.py" -exec mv "{}" /new_dir/python_dir \;
+find . -name "*.sh" -exec mv "{}" /new_dir/shell_dir \;
+
+
+### check if a git is installed,if not install git
+git --version 2>&1 >/dev/null
+GIT_IS_AVAILABLE -eq 0 ];
+then sudo apt-get update -y
+ 
+## GIT ##
+echo '###installing gitr..'
+sudo apt-get install git -y
+exit
+fi
+
+
+##GIT
+
+
+
